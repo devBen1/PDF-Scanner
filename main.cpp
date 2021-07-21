@@ -11,67 +11,43 @@
 
 int system(const char *command);
 
-int main()
+int main(){
 
-{
+  using namespace std;
 
-using namespace std;
+  char x;
+  char y;
+  char v;
 
-char x;
+  system("color 1e");
+  cout << "\t\t!!!!WELCOME TO devBen PDF SCANNER!!!! \n\n\nHERE YOU CAN SCAN YOU HARD DISK FOR AVAILABLE .PDF FILES";
+  cout << "\n\nDO YOU WANT ME TO SCAN A DISK OR A SPECIFIC FOLDER. \n\nTYPE D for disk OR F for folder.:\n\n";
+  cin >> y;
 
-char y;
+  if (y = 'd'){
+    cout << "\n\nSPECIFY THE DISK YOU WANT TO SCAN AND HIT ENTER.: " << endl;
+    cin >> v;
 
-char v;
+    string cmdLine = "forfiles.exe /p ";
+    cmdLine += v;
 
-system("color 1e");
+    cmdLine += ":\\ /s /m *.pdf";
+    system(cmdLine.c_str());
 
-cout << "\t\t!!!!WELCOME TO devBen PDF SCANNER!!!! \n\n\nHERE YOU CAN SCAN YOU HARD DISK FOR AVAILABLE .PDF FILES";
+  }else if (y = 'f'){
 
-cout << "\n\nDO YOU WANT ME TO SCAN A DISK OR A SPECIFIC FOLDER. \n\nTYPE D for disk OR F for folder.:\n\n";
+    cout << "\n\nSPECIFY THE FOLDER YOU WANT TO SCAN AND HIT ENTER.: " << endl;
+    cin >> x;
 
-cin >> y;
+    string cmdLine = "forfiles.exe /p ";
+    cmdLine += x;
 
-if (y = 'd')
+    cmdLine += ":\\ /s /m *.pdf";
+    system(cmdLine.c_str());
 
-{
-
-cout << "\n\nSPECIFY THE DISK YOU WANT TO SCAN AND HIT ENTER.: " << endl;
-
-cin >> v;
-
-string cmdLine = "forfiles.exe /p ";
-
-cmdLine += v;
-
-cmdLine += ":\\ /s /m *.pdf";
-
-system(cmdLine.c_str());
-
-}
-
-else if (y = 'f')
-
-{
-
-cout << "\n\nSPECIFY THE FOLDER YOU WANT TO SCAN AND HIT ENTER.: " << endl;
-
-cin >> x;
-
-string cmdLine = "forfiles.exe /p ";
-
-cmdLine += x;
-
-cmdLine += ":\\ /s /m *.pdf";
-
-system(cmdLine.c_str());
-
-}
-
-
-
-return 0;
-
-
+  }
+  
+  return 0;
 
 }
 
